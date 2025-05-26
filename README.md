@@ -2,12 +2,19 @@
 
 Ubuntu 22.04 기반의 Kubernetes 환경 구축 가이드입니다.
 
+## 0. 빌드전 준비
+
+offiline 설치에 사용한 pip_install.tar, /rbln-rbln-model-zoo/ 가 필요하며 pip_install.tar는 작업폴더에서 먼저 압축해제후 실행합니다.  
+pip_install.tar를 복사 후 압축해제하면 최종 Container image 용량이 약 7GB정도 늘어납니다.
+
 ## 1. 이미지 빌드
 
-Ubuntu 22.04 기반의 컨테이너 이미지를 빌드합니다.
+Ubuntu 22.04 기반의 컨테이너 이미지를 빌드합니다.  
+k8s는 docker를 사용하지 않으므로 buildctl background 실행후 생성합니다.
 
 ```bash
-buildctl build --frontend=dockerfile.v0 --local context=. --local dockerfile=. --output type=oci,dest=image.tar,name=k8s-rebel:22.04
+buildkitd &
+buildctl build --frontend=dockerfile.v0 --local context=. --local dockerfile=. --output type=oci,dest=image.tar,name=k8srebel:22.04
 ```
 
 ## 2. containerd 이미지 관리

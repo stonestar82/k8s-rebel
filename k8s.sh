@@ -155,9 +155,9 @@ kubeadm init
 
 ## buildkit 설치
 wget https://github.com/moby/buildkit/releases/latest/download/buildkit-v0.22.0.linux-amd64.tar.gz
-tar -xvf buildkit-v0.22.0.linux-amd64.tar.gz
-sudo mv buildkitd /usr/local/bin/buildkitd
-sudo mv buildctl /usr/local/bin/buildctl
+tar -xf buildkit-v0.22.0.linux-amd64.tar.gz
+sudo mv bin/buildctl /usr/local/bin/
+sudo mv bin/buildkitd /usr/local/bin/
 
 
 
