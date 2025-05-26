@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: rebel-device-k8s
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: rebel-device-k8s
+  template:
+    metadata:
+      labels:
+        name: rebel-device-k8s
+    spec:
+      containers:
+        - name: k8srebel
+          image: k8srebel:22.04
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash", "-c", "--"]
+          args: ["while true; do sleep 300000; done;"]
+          resources:
+            requests:
+              rebellions.ai/ATOM: 8
+            limits:
+              rebellions.ai/ATOM: 8
