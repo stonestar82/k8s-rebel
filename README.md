@@ -14,6 +14,9 @@ k8s는 docker를 사용하지 않으므로 buildctl background 실행후 생성�
 
 ```bash
 buildkitd &
+```
+
+```bash
 buildctl build --frontend=dockerfile.v0 --local context=. --local dockerfile=. --output type=oci,dest=image.tar,name=k8srebel:22.04
 ```
 
