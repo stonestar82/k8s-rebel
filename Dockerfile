@@ -34,6 +34,6 @@ RUN pip install --no-cache-dir \
     pip install --no-cache-dir \
     /rebel/offline_install/vllm-rbln/vllm_rbln-0.7.3-py3-none-any.whl -f /rebel/offline_install/vllm-rbln --no-index
 
-COPY rbln-model-zoo /rbln-model-zoo/huggingface/
+COPY rbln-model-zoo /rbln-model-zoo/
 
 RUN rm -rf /rebel
